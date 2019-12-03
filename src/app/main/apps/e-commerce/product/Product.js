@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Tab, Tabs, TextField, InputAdornment, Icon, Typography} from '@material-ui/core';
+import {Button, Tab, Tabs, TextField, Icon, Typography} from '@material-ui/core';
 import {orange} from '@material-ui/core/colors';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, FusePageCarded, FuseChipSelect, FuseUtils, FuseLoading} from '@fuse';
@@ -11,6 +11,17 @@ import {useDispatch, useSelector} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
+
+const suggestions = [
+    'Breakfast',
+    'Brunch',
+    'Lunch',
+    'Dinner',
+    'Personal bartender'
+].map(item => ({
+    value: item,
+    label: item
+}));
 
 const useStyles = makeStyles(theme => ({
     productImageFeaturedStar: {
@@ -153,13 +164,6 @@ function Product(props)
 
                         <div className="flex flex-col items-start max-w-full">
 
-                            <FuseAnimate animation="transition.slideRightIn" delay={300}>
-                                <Typography className="normal-case flex items-center sm:mb-12" component={Link} role="button" to="/apps/e-commerce/products" color="inherit">
-                                    <Icon className="mr-4 text-20">arrow_back</Icon>
-                                    Products
-                                </Typography>
-                            </FuseAnimate>
-
                             <div className="flex items-center max-w-full">
                                 <FuseAnimate animation="transition.expandIn" delay={300}>
                                     {form.images.length > 0 && form.featuredImageId ? (
@@ -171,23 +175,23 @@ function Product(props)
                                 <div className="flex flex-col min-w-0">
                                     <FuseAnimate animation="transition.slideLeftIn" delay={300}>
                                         <Typography className="text-16 sm:text-20 truncate">
-                                            {form.name ? form.name : 'New Product'}
+                                            Food and Beverage
                                         </Typography>
-                                    </FuseAnimate>
-                                    <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                                        <Typography variant="caption">Product Detail</Typography>
                                     </FuseAnimate>
                                 </div>
                             </div>
                         </div>
                         <FuseAnimate animation="transition.slideRightIn" delay={300}>
                             <Button
-                                className="whitespace-no-wrap"
+                                component={Link}
+                                to="/apps/e-commerce/orders/1"
+                                color="secondary"
+                                // className="whitespace-no-wrap"
                                 variant="contained"
                                 disabled={!canBeSubmitted()}
                                 onClick={() => dispatch(Actions.saveProduct(form))}
                             >
-                                Save
+                                Proceed to Checkout
                             </Button>
                         </FuseAnimate>
                     </div>
@@ -203,11 +207,18 @@ function Product(props)
                     scrollButtons="auto"
                     classes={{root: "w-full h-64"}}
                 >
-                    <Tab className="h-64 normal-case" label="Basic Info"/>
-                    <Tab className="h-64 normal-case" label="Product Images"/>
-                    <Tab className="h-64 normal-case" label="Pricing"/>
-                    <Tab className="h-64 normal-case" label="Inventory"/>
-                    <Tab className="h-64 normal-case" label="Shipping"/>
+                    <Tab className="h-64 normal-case" label="Details"/>
+                    <Button
+                        component={Link}
+                        to="/apps/calendar"
+                        color="secondary"
+                        // className="whitespace-no-wrap"
+                        variant="contained"
+                        // disabled={!canBeSubmitted()}
+                        // onClick={() => dispatch(Actions.saveProduct(form))}
+                    >
+                        View Calendar
+                    </Button>
                 </Tabs>
             }
             content={
@@ -219,14 +230,74 @@ function Product(props)
 
                                 <TextField
                                     className="mt-8 mb-16"
-                                    error={form.name === ''}
-                                    required
-                                    label="Name"
-                                    autoFocus
-                                    id="name"
-                                    name="name"
-                                    value={form.name}
+                                    label="Party Size"
+                                    id="quantity"
+                                    name="quantity"
+                                    // value={form.quantity}
                                     onChange={handleChange}
+                                    variant="outlined"
+                                    type="number"
+                                    fullWidth
+                                />
+
+                                <FuseChipSelect
+                                    className="w-full my-16"
+                                    // value={tags}
+                                    // onChange={handleChipChange}
+                                    onChange={(value) => handleChipChange(value, 'categories')}
+                                    placeholder="Select Meal types"
+                                    textFieldProps={{
+                                        label          : 'Meal types',
+                                        InputLabelProps: {
+                                            shrink: true
+                                        },
+                                        variant        : 'outlined'
+                                    }}
+                                    options={suggestions}
+                                    isMulti
+                                />
+
+                                <TextField
+                                    className="mt-8 mb-16"
+                                    label="Total Number of Days for Meals"
+                                    id="budget"
+                                    name="budget"
+                                    // value={form.taxRate}
+                                    onChange={handleChange}
+                                    // InputProps={{
+                                    //     startAdornment: <InputAdornment position="start">$</InputAdornment>
+                                    // }}
+                                    type="number"
+                                    variant="outlined"
+                                    fullWidth
+                                />
+
+                                <TextField
+                                    className="mt-8 mb-16"
+                                    label="Total Number of Hours for Personal Bartender"
+                                    id="budget"
+                                    name="budget"
+                                    // value={form.taxRate}
+                                    onChange={handleChange}
+                                    // InputProps={{
+                                    //     startAdornment: <InputAdornment position="start">$</InputAdornment>
+                                    // }}
+                                    type="number"
+                                    variant="outlined"
+                                    fullWidth
+                                />
+
+                                <TextField
+                                    className="mt-8 mb-16"
+                                    label="Budget"
+                                    id="budget"
+                                    name="budget"
+                                    // value={form.taxRate}
+                                    onChange={handleChange}
+                                    // InputProps={{
+                                    //     startAdornment: <InputAdornment position="start">$</InputAdornment>
+                                    // }}
+                                    type="number"
                                     variant="outlined"
                                     fullWidth
                                 />
@@ -236,54 +307,17 @@ function Product(props)
                                     id="description"
                                     name="description"
                                     onChange={handleChange}
-                                    label="Description"
+                                    label="Personal Requests for Alfred"
                                     type="text"
-                                    value={form.description}
+                                    // value={form.description}
                                     multiline
                                     rows={5}
                                     variant="outlined"
                                     fullWidth
                                 />
 
-                                <FuseChipSelect
-                                    className="mt-8 mb-24"
-                                    value={
-                                        form.categories.map(item => ({
-                                            value: item,
-                                            label: item
-                                        }))
-                                    }
-                                    onChange={(value) => handleChipChange(value, 'categories')}
-                                    placeholder="Select multiple categories"
-                                    textFieldProps={{
-                                        label          : 'Categories',
-                                        InputLabelProps: {
-                                            shrink: true
-                                        },
-                                        variant        : 'outlined'
-                                    }}
-                                    isMulti
-                                />
+           
 
-                                <FuseChipSelect
-                                    className="mt-8 mb-16"
-                                    value={
-                                        form.tags.map(item => ({
-                                            value: item,
-                                            label: item
-                                        }))
-                                    }
-                                    onChange={(value) => handleChipChange(value, 'tags')}
-                                    placeholder="Select multiple tags"
-                                    textFieldProps={{
-                                        label          : 'Tags',
-                                        InputLabelProps: {
-                                            shrink: true
-                                        },
-                                        variant        : 'outlined'
-                                    }}
-                                    isMulti
-                                />
                             </div>
                         )}
                         {tabValue === 1 && (
@@ -322,167 +356,6 @@ function Product(props)
                                         </div>
                                     ))}
                                 </div>
-                            </div>
-                        )}
-                        {tabValue === 2 && (
-                            <div>
-
-                                <TextField
-                                    className="mt-8 mb-16"
-                                    label="Tax Excluded Price"
-                                    id="priceTaxExcl"
-                                    name="priceTaxExcl"
-                                    value={form.priceTaxExcl}
-                                    onChange={handleChange}
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position="start">$</InputAdornment>
-                                    }}
-                                    type="number"
-                                    variant="outlined"
-                                    autoFocus
-                                    fullWidth
-                                />
-
-                                <TextField
-                                    className="mt-8 mb-16"
-                                    label="Tax Included Price"
-                                    id="priceTaxIncl"
-                                    name="priceTaxIncl"
-                                    value={form.priceTaxIncl}
-                                    onChange={handleChange}
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position="start">$</InputAdornment>
-                                    }}
-                                    type="number"
-                                    variant="outlined"
-                                    fullWidth
-                                />
-
-                                <TextField
-                                    className="mt-8 mb-16"
-                                    label="Tax Rate"
-                                    id="taxRate"
-                                    name="taxRate"
-                                    value={form.taxRate}
-                                    onChange={handleChange}
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position="start">$</InputAdornment>
-                                    }}
-                                    type="number"
-                                    variant="outlined"
-                                    fullWidth
-                                />
-
-                                <TextField
-                                    className="mt-8 mb-16"
-                                    label="Compared Price"
-                                    id="comparedPrice"
-                                    name="comparedPrice"
-                                    value={form.comparedPrice}
-                                    onChange={handleChange}
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position="start">$</InputAdornment>
-                                    }}
-                                    type="number"
-                                    variant="outlined"
-                                    fullWidth
-                                    helperText="Add a compare price to show next to the real price"
-                                />
-
-                            </div>
-                        )}
-                        {tabValue === 3 && (
-                            <div>
-
-                                <TextField
-                                    className="mt-8 mb-16"
-                                    required
-                                    label="SKU"
-                                    autoFocus
-                                    id="sku"
-                                    name="sku"
-                                    value={form.sku}
-                                    onChange={handleChange}
-                                    variant="outlined"
-                                    fullWidth
-                                />
-
-                                <TextField
-                                    className="mt-8 mb-16"
-                                    label="Quantity"
-                                    id="quantity"
-                                    name="quantity"
-                                    value={form.quantity}
-                                    onChange={handleChange}
-                                    variant="outlined"
-                                    type="number"
-                                    fullWidth
-                                />
-                            </div>
-                        )}
-                        {tabValue === 4 && (
-                            <div>
-                                <div className="flex">
-                                    <TextField
-                                        className="mt-8 mb-16 mr-8"
-                                        label="Width"
-                                        autoFocus
-                                        id="width"
-                                        name="width"
-                                        value={form.width}
-                                        onChange={handleChange}
-                                        variant="outlined"
-                                        fullWidth
-                                    />
-
-                                    <TextField
-                                        className="mt-8 mb-16 mr-8"
-                                        label="Height"
-                                        id="height"
-                                        name="height"
-                                        value={form.height}
-                                        onChange={handleChange}
-                                        variant="outlined"
-                                        fullWidth
-                                    />
-
-                                    <TextField
-                                        className="mt-8 mb-16 mr-8"
-                                        label="Depth"
-                                        id="depth"
-                                        name="depth"
-                                        value={form.depth}
-                                        onChange={handleChange}
-                                        variant="outlined"
-                                        fullWidth
-                                    />
-
-                                </div>
-
-                                <TextField
-                                    className="mt-8 mb-16"
-                                    label="Weight"
-                                    id="weight"
-                                    name="weight"
-                                    value={form.weight}
-                                    onChange={handleChange}
-                                    variant="outlined"
-                                    fullWidth
-                                />
-
-                                <TextField
-                                    className="mt-8 mb-16"
-                                    label="Extra Shipping Fee"
-                                    id="extraShippingFee"
-                                    name="extraShippingFee"
-                                    value={form.extraShippingFee}
-                                    onChange={handleChange}
-                                    variant="outlined"
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position="start">$</InputAdornment>
-                                    }}
-                                    fullWidth
-                                />
                             </div>
                         )}
                     </div>
