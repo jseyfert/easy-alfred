@@ -16,31 +16,31 @@ const navigationConfig = [
     },
     {
         'id'   : 'profile',
-        'title': 'PROFILE PAGE',
+        'title': 'My Trips',
         'type' : 'item',
         'icon' : 'person',
         'url'  : '/pages/profile'
     },
     {
         'id'   : 'style-1',
-        'title': 'PRICING PAGE',
+        'title': 'Services',
         'type' : 'item',
-        'icon' : 'person',
+        'icon' : 'card_giftcard',
         'url'  : '/pages/pricing/style-1'
     },
-    {
-        'id'   : 'e-commerce-product-detail',
-        'title': 'PRICING DETAIL PAGE',
-        'type' : 'item',
-        'icon' : 'person',
-        'url'  : '/apps/e-commerce/products/1/a-walk-amongst-friends-canvas-print',
-        'exact': true
-    },
+    // {
+    //     'id'   : 'e-commerce-product-detail',
+    //     'title': 'SERVICE DETAIL',
+    //     'type' : 'item',
+    //     'icon' : 'card_membership',
+    //     'url'  : '/apps/e-commerce/products/1/a-walk-amongst-friends-canvas-print',
+    //     'exact': true
+    // },
     {
         'id'   : 'e-commerce-order-detail',
-        'title': 'CART',
+        'title': 'Alfred’s Plan',
         'type' : 'item',
-        'icon' : 'person',
+        'icon' : 'shopping_cart',
         'url'  : '/apps/e-commerce/orders/1',
         'exact': true
     },

@@ -115,7 +115,7 @@ function Order(props)
                                 <div className="pb-48">
 
                                     <div className="pb-16 flex items-center">
-                                        <Icon className="mr-16" color="action">attach_money</Icon>
+                                        <Icon className="mr-16" color="action">shopping_cart</Icon>
                                         <Typography className="h2" color="textSecondary">Cart</Typography>
                                     </div>
 
@@ -166,8 +166,9 @@ function Order(props)
                                                     <td>
                                                       <Button
                                                         type="submit"
+                                                        href="tel:+1800229933"
                                                         variant="contained"
-                                                        color="secondary"
+                                                        // color="secondary"
                                                         // className="w-full mx-auto normal-case mt-16"
                                                         aria-label="CALL NOW"
                                                         disabled={false}
@@ -175,19 +176,6 @@ function Order(props)
                                                     >
                                                         Call Now
                                                     </Button>
-                                                    </td>
-                                                    <td>
-                                                        <Button
-                                                            type="submit"
-                                                            variant="contained"
-                                                            color="secondary"
-                                                            // className="w-half mx-auto normal-case mt-16"
-                                                            aria-label="CALL NOW"
-                                                            disabled={false}
-                                                            value="firebase"
-                                                        >
-                                                            Schedule My Alfred
-                                                        </Button>
                                                     </td>
                                                 </tr>
                                             </tbody>

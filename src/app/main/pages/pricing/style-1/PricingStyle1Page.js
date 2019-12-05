@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Card, CardContent, Divider, Typography} from '@material-ui/core';
+import {Button, Card, CardContent, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
 import clsx from 'clsx';
@@ -33,16 +33,10 @@ function PricingStyle1Page()
 
                         <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
                             <Typography variant="h2" color="inherit" className="font-light">
-                                Simple Pricing!
+                                Services
                             </Typography>
                         </FuseAnimate>
 
-                        <FuseAnimate duration={400} delay={600}>
-                            <Typography variant="subtitle1" color="inherit" className="opacity-75 mt-16 mx-auto max-w-512">
-                                The most advanced customer support tools with a simple and affordable pricing. And you can always try
-                                for 30 days, free!
-                            </Typography>
-                        </FuseAnimate>
                     </div>
                 </div>
             </div>
@@ -62,33 +56,14 @@ function PricingStyle1Page()
                             <Card square>
 
                                 <div className={clsx(classes.cardHeader, "px-24 py-16")}>
-                                    <Typography variant="subtitle1" color="inherit">Food & Beverage</Typography>
+                                    <Typography variant="subtitle1" color="inherit">Food and Beverage</Typography>
                                 </div>
 
                                 <CardContent className="p-32">
 
-                                    <div className="flex justify-center">
-                                        <Typography variant="h5" color="textSecondary">$</Typography>
-                                        <div className="flex items-end">
-                                            <Typography className="text-72 mx-4 font-light leading-none">100</Typography>
-                                            <Typography variant="subtitle1" color="textSecondary">base price</Typography>
-                                        </div>
-                                    </div>
-
-                                    <Divider className="my-32"/>
-
                                     <div className="flex flex-col">
                                         <Typography variant="subtitle1" className="">
-                                            <span className="font-bold mr-4">10</span>
-                                            Projects
-                                        </Typography>
-                                        <Typography variant="subtitle1" className="">
-                                            <span className="font-bold mr-4">10</span>
-                                            Pages
-                                        </Typography>
-                                        <Typography variant="subtitle1" className="">
-                                            <span className="font-bold mr-4">100</span>
-                                            Mb Disk Space
+                                            Wine and dine with local chefs, caterers, and bartenders serving up their best cuisine without lifting finger in the kitchen.
                                         </Typography>
                                     </div>
                                 </CardContent>
@@ -110,28 +85,9 @@ function PricingStyle1Page()
 
                                 <CardContent className="p-32">
 
-                                    <div className="flex justify-center">
-                                        <Typography variant="h5" color="textSecondary">$</Typography>
-                                        <div className="flex items-end">
-                                            <Typography className="text-72 mx-4 font-light leading-none">100</Typography>
-                                            <Typography variant="subtitle1" color="textSecondary">or more</Typography>
-                                        </div>
-                                    </div>
-
-                                    <Divider className="my-32"/>
-
                                     <div className="flex flex-col">
                                         <Typography variant="subtitle1" className="">
-                                            <span className="font-bold mr-4">20</span>
-                                            Projects
-                                        </Typography>
-                                        <Typography variant="subtitle1" className="">
-                                            <span className="font-bold mr-4">20</span>
-                                            Pages
-                                        </Typography>
-                                        <Typography variant="subtitle1" className="">
-                                            <span className="font-bold mr-4">200</span>
-                                            Mb Disk Space
+                                            Explore the area with local guides, adventures and other events organized by Easy Alfred!
                                         </Typography>
                                     </div>
                                 </CardContent>
@@ -151,34 +107,30 @@ function PricingStyle1Page()
                         <div className="flex flex-wrap w-full">
 
                             <div className="w-full sm:w-1/2 p-24">
-                                <Typography className="text-20 mb-8">How does free trial work?</Typography>
+                                <Typography className="text-20 mb-8">How does Easy Alfred work?</Typography>
                                 <Typography className="text-16" color="textSecondary">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a diam nec augue tincidunt
-                                    accumsan. In dignissim laoreet ipsum eu interdum.
+                                    We’re your local concierge and travel guide. Need a meal? we’ll organize it. Need a massage? We’ll order it. We’ve got an Alfred for every occasion and most all of your needs.
                                 </Typography>
                             </div>
 
                             <div className="w-full sm:w-1/2 p-24">
-                                <Typography className="text-20 mb-8">Can I cancel any time?</Typography>
+                                <Typography className="text-20 mb-8">What do I need to do?</Typography>
                                 <Typography className="text-16" color="textSecondary">
-                                    Aliquam erat volutpat. Etiam luctus massa ex, at tempus tellus blandit quis. Sed quis neque tellus.
-                                    Donec maximus ipsum in malesuada hendrerit.
+                                    Pick from our list of services, identifying high-level information we need to start this process. Then, we’ll have a quick call with Alfred to ensure we’ve got the details. We coordinate with the local company for a small fee to make sure you can focus on your travel rather than spend it planning and managing your day. 
                                 </Typography>
                             </div>
 
                             <div className="w-full sm:w-1/2 p-24">
-                                <Typography className="text-20 mb-8">What happens after my trial ended?</Typography>
+                                <Typography className="text-20 mb-8">What’s the advantage of Easy Alfred over other services?</Typography>
                                 <Typography className="text-16" color="textSecondary">
-                                    Aliquam erat volutpat. Etiam luctus massa ex, at tempus tellus blandit quis. Sed quis neque tellus.
-                                    Donec maximus ipsum in malesuada hendrerit.
+                                    We work to find the best local businesses so you don’t have to. Coordinating with your Short Term rental owner, our team of researchers, and through our 30+ years of collective experience working with local businesses, we want your travel experience to be the best, so we only work with those we judge to be great.
                                 </Typography>
                             </div>
 
                             <div className="w-full sm:w-1/2 p-24">
-                                <Typography className="text-20 mb-8">Can I have a discount?</Typography>
+                                <Typography className="text-20 mb-8">How do I pay? </Typography>
                                 <Typography className="text-16" color="textSecondary">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a diam nec augue tincidunt
-                                    accumsan. In dignissim laoreet ipsum eu interdum.
+                                    With Easy Alfred, you have a card on file. All invoices are cleared with you prior to committing to the service and any payment made. All invoices are available here in your profile. We believe in full transparency. The services are then scheduled through the app calendar where you will receive notification of upcoming events. You don’t need to keep your regular schedule. You’re on holiday. Turn that off and rely on our schedule focused on having a beautiful, wonderful trip.
                                 </Typography>
                             </div>
                         </div>

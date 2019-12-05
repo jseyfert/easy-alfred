@@ -181,19 +181,6 @@ function Product(props)
                                 </div>
                             </div>
                         </div>
-                        <FuseAnimate animation="transition.slideRightIn" delay={300}>
-                            <Button
-                                component={Link}
-                                to="/apps/e-commerce/orders/1"
-                                color="secondary"
-                                // className="whitespace-no-wrap"
-                                variant="contained"
-                                disabled={!canBeSubmitted()}
-                                onClick={() => dispatch(Actions.saveProduct(form))}
-                            >
-                                Proceed to Checkout
-                            </Button>
-                        </FuseAnimate>
                     </div>
                 )
             }
@@ -316,7 +303,19 @@ function Product(props)
                                     fullWidth
                                 />
 
-           
+                                <FuseAnimate animation="transition.slideRightIn" delay={300}>
+                                    <Button
+                                        component={Link}
+                                        to="/apps/e-commerce/orders/1"
+                                        color="secondary"
+                                        // className="whitespace-no-wrap"
+                                        variant="contained"
+                                        disabled={!canBeSubmitted()}
+                                        onClick={() => dispatch(Actions.saveProduct(form))}
+                                    >
+                                        Proceed to Checkout
+                                    </Button>
+                                </FuseAnimate>
 
                             </div>
                         )}

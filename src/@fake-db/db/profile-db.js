@@ -83,7 +83,7 @@ const profileDB = {
                     'name'  : 'Current Trip',
                 },
                 'message' : 'The Fife House - Los Angeles, CA',
-                'time'    : 'June 10, 2015',
+                'time'    : 'June 10, 2019',
                 'type'    : 'post',
                 'like'    : 5,
                 'share'   : 21,
@@ -97,14 +97,14 @@ const profileDB = {
                 'user'   : {
                     'name'  : 'Upcoming Trip',
                 },
-                'message': 'The Beard House  - Los Angeles, CA',
-                'time'   : 'June 10, 2015',
+                'message': 'The Beard House  - Palm Springs, CA',
+                'time'   : 'July 22, 2019',
                 'type'   : 'post',
                 'like'   : 4,
                 'share'  : 1,
                 'media'   : {
                     'type'   : 'image',
-                    'preview': 'https://www.easyalfred.com/wp-content/uploads/2019/03/frontpagegraphic3.jpg'
+                    'preview': 'https://www.easyalfred.com/wp-content/uploads/2019/03/log-home-2225442_1280.jpg'
                 },
             }
         ]

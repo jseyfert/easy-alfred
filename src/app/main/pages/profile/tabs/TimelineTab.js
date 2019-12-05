@@ -6,7 +6,8 @@ import {
     CardContent,
     CardHeader,
     Icon,
-    IconButton,
+    Button,
+    // IconButton,
     List,
     ListItem,
     ListItemText,
@@ -50,9 +51,7 @@ function TimelineTab()
                                         <Avatar aria-label="Recipe" src={post.user.avatar}/>
                                     }
                                     action={
-                                        <IconButton component={Link} to="/pages/pricing/style-1" aria-label="more">
-                                            <Icon>more_vert</Icon>
-                                        </IconButton>
+                                        <Button component={Link} to="/pages/pricing/style-1" variant="contained" color="secondary" className="w-128">View</Button>
                                     }
                                     title={(
                                         <span>
